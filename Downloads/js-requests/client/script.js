@@ -2,6 +2,8 @@
 //THE TEST SERVER IS RUNNING ON LOCALHOST:3000//
 ////////////////////////////////////////////////
 
+
+
 // PROBLEM 1
 /*
     In the index.html file in this folder there is a button with an id of 'say-hello-button'!
@@ -10,6 +12,7 @@
 */
 
 // CODE HERE
+let sayHelloButton = document.querySelector(`#say-hello-button`);
 
 
 // PROBLEM 2
@@ -20,8 +23,10 @@
 */
 
 // CODE HERE
-
-
+sayHelloButton.addEventListener(`mouseover`, () => {
+    sayHelloButton.style.backgroundColor = `black`
+    sayHelloButton.style.color = `white`;
+})
 // PROBLEM 3
 /*
     Now you can see that the button colors change, but they do not change back when we take the mouse off of the button.
@@ -32,7 +37,10 @@
 */
 
 // CODE HERE
-
+sayHelloButton.addEventListener(`mouseout`, () => {
+    sayHelloButton.style.backgroundColor = `#EFEFEF`;
+    sayHelloButton.style.color = `black`;
+})
 
 // PROBLEM 4
 /*
@@ -53,7 +61,7 @@ const sayHello = () => {
 // DO NOT EDIT FUNCTION
 
 // CODE HERE
-
+sayHelloButton.addEventListener('click', sayHello)
 
 // PROBLEM 5 
 /*
@@ -67,9 +75,11 @@ const sayHello = () => {
 */ 
 
 const ohMy = () => {
-    // YOUR CODE HERE
+    return axios.get(`http://localhost:3000/animals`)
+        .then(res => {
+            return res.data
+    })
 }
-
 document.getElementById('animals-button').addEventListener('click', ohMy)
 
 
@@ -87,8 +97,11 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
 */
 
 const repeatMyParam = () => {
-    //YOUR CODE HERE
+    return axios.get(`http://localhost:3000/repeat/Go-Jazz`)
+        .then(res => res.data)
 }
+document.getElementById(`#repeat-button`)
+document.addEventListener('click', repeatMyParam)
 
 // PROBLEM 7
 /*
